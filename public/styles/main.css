@@ -1,10 +1,41 @@
-.nav-links li{
-    list-style-type: none;
+.nav-links ul{
+    list-style: none;
 }
 .nav-links a{
     text-decoration: none;
     color: white;
 }
-.nav-links a:hover{
-    color: red;
+
+.nav-links a {
+    display: inline-block;
+    position: relative;
+}
+  
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #0087ca;
+    transition: transform 0.25s ease-out;
+}
+  
+.nav-links a:hover::after {
+    transform: scaleX(1);
+}
+
+.nav-links a.left::after {
+    transform-origin: bottom left;
+}
+  
+/* make it move to the left only when hovering, change the above part to bottom right */
+/* .nav-links a.left:hover::after {
+    transform-origin: bottom left;
+} */
+
+.nav-links a.right::after {
+    transform-origin: bottom right;
 }
