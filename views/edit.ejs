@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include("partials/head.ejs") %>
+</head>
+
+<body>
+  <header>
+    <%- include("partials/header.ejs") %>
+  </header>
+  <main>
+    <div class="container mt-5">
+      <h1>Edit a post</h1>
+      <form action="/update/<%= blogPost.id %>" method="POST">
+        <label for="title">Add a title</label>
+        <input class="form-control mb-3" type="text" name="title" value="<%= blogPost.title %>" placeholder="Post title">
+        <label for="content">Add some content</label>
+        <textarea class="form-control" name="content"><%= blogPost.content %></textarea>
+        <input class="btn btn-primary my-3" type="submit" value="Edit">
+      </form>
+    </div>
+  </main>
+  <footer>
+    <%- include("partials/footer.ejs") %>
+  </footer>
+</body>
+
+</html>

@@ -9,8 +9,24 @@
   <header>
     <%- include("partials/header.ejs") %>
   </header>
-  <main>
-    <h1>Hello from home page</h1>
+  <main class="container">
+    <div class="page-title">
+      <h1>Node.js Post Creator!</h1>
+      <p>Create some unique posts about anything...</p>
+    </div>
+    <% if(locals.blogPosts.length > 0) { %>
+    <% blogPosts.forEach(post => { %>
+    <div class="post-card p-3 m-3 border border-3 rounded-2">
+      <h2><%= post.title %></h2>
+      <p><%= post.content %></p>
+      <% url = `/posts/${post.id}/edit` %>
+      <a class="btn btn-dark" href="<%= url %>">Edit</a>
+      <!-- <a class="btn btn-dark" href="/edit">Edit</a> -->
+    </div>
+    <% }); %>
+    <% } else { %>
+    <p>There are no posts created yet.</p>
+    <% } %>
   </main>
   <footer>
     <%- include("partials/footer.ejs") %>
