@@ -2,8 +2,19 @@
     --blue-hover: #0087ca;
 }
 
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main{
+    flex-grow: 1;
+}
+
 .logo i{
     font-size: 3rem;
+    transition: color 0.6s;
 }
 .logo i:hover{
     color: var(--blue-hover);
@@ -49,4 +60,8 @@
 
 .nav-links a.right::after {
     transform-origin: bottom right;
+}
+
+footer p{
+    color: white;
 }
