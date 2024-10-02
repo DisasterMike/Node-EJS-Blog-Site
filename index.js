@@ -23,8 +23,10 @@ app.get("/posts/new", (req, res) => {
 
 app.post("/posts/create", (req, res) => {
     // console.log(req.body);
-    posts.push({ id: uniqueId, title: req.body.title, content: req.body.content });
-    uniqueId += 1;
+    if(req.body.title != "" && req.body.content != ""){
+        posts.push({ id: uniqueId, title: req.body.title, content: req.body.content });
+        uniqueId += 1;
+    }
     res.redirect("/");
 });
 
@@ -37,8 +39,11 @@ app.get("/posts/:id/edit", (req, res) => {
 
 app.post("/update/:id", (req, res) => {
     // console.log(req.body);
-    posts[req.params.id - 1].title = req.body.title;
-    posts[req.params.id - 1].content = req.body.content;
+    
+    if(req.body.title != "" && req.body.content != ""){
+        posts[req.params.id - 1].title = req.body.title;
+        posts[req.params.id - 1].content = req.body.content;
+    }
     res.redirect("/");
 });
 
