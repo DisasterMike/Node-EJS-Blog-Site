@@ -1,3 +1,14 @@
+:root{
+    --blue-hover: #0087ca;
+}
+
+.logo i{
+    font-size: 3rem;
+}
+.logo i:hover{
+    color: var(--blue-hover);
+}
+
 .nav-links ul{
     list-style: none;
 }
@@ -19,7 +30,7 @@
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #0087ca;
+    background-color: var(--blue-hover);
     transition: transform 0.25s ease-out;
 }
   
